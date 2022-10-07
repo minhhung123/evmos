@@ -9,6 +9,8 @@ import (
 
 	"github.com/evmos/evmos/v9/app"
 	cmdcfg "github.com/evmos/evmos/v9/cmd/config"
+
+	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 )
 
 func main() {
@@ -37,5 +39,6 @@ func setupConfig() {
 	// 	panic(err)
 	// }
 	cmdcfg.SetBip44CoinType(config)
+	config.SetAddressVerifier(wasmtypes.VerifyAddressLen())
 	config.Seal()
 }
