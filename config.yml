@@ -7,7 +7,7 @@ validator:
   name: alice
   staked: "100000000000000000000aevmos"
 faucet:
-  name: bob 
+  name: bob
   coins: ["10aevmos"]
 build:
   binary: "evmosd"

@@ -1,5 +1,5 @@
 KEY="mykey"
-CHAINID="evmos_9005-1"
+CHAINID="evmos_9000-1"
 MONIKER="localtestnet"
 KEYRING="test" # remember to change to other types of keyring like 'file' in-case exposing to outside world, otherwise your balance will be wiped quickly. The keyring test does not require private key to steal tokens from you
 KEYALGO="eth_secp256k1"
@@ -11,14 +11,14 @@ TRACE=""
 # validate dependencies are installed
 command -v jq > /dev/null 2>&1 || { echo >&2 "jq not installed. More info: https://stedolan.github.io/jq/download/"; exit 1; }
 
-# used to exit on first error (any non-zero exit code)
-set -e
+# # used to exit on first error (any non-zero exit code)
+# set -e
 
-# Clear everything of previous installation
-rm -rf ~/.evmosd*
+# # Clear everything of previous installation
+# rm -rf ~/.evmosd*
 
 # Reinstall daemon
-make install
+make clean install
 
 # Set client config
 evmosd config keyring-backend $KEYRING
